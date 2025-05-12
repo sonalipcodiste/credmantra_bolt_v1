@@ -100,13 +100,13 @@ const Footer = () => {
 								Quick Links
 							</div>
 							<Link
-								href="#"
+								href="/terms-of-service"
 								className="text-gray-600 hover:text-gray-900 transition-colors"
 							>
 								Terms of Service
 							</Link>
 							<Link
-								href="#"
+								href="/privacy-policy"
 								className="text-gray-600 hover:text-gray-900 transition-colors"
 							>
 								Privacy Policy

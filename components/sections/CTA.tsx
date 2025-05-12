@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, useInView } from "framer-motion";
 import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
+import { PopupButton } from "react-calendly";
 
 const CTASection = () => {
 	const sectionRef = useRef(null);
@@ -51,12 +52,12 @@ const CTASection = () => {
 								Mantra.
 							</p>
 							<div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-								<Button
-									size="lg"
-									className="rounded-md text-base px-8 font-medium bg-white text-[#005A8B] hover:bg-white/90 w-full sm:w-auto"
-								>
-									Request a demo
-								</Button>
+								<PopupButton
+									url="https://calendly.com/credmantra/demo"
+									rootElement={document.getElementById("__next")}
+									text="Request a demo"
+									className="rounded-md text-base px-8 py-3 font-medium bg-white text-[#005A8B] hover:bg-white/90 w-full sm:w-auto"
+								/>
 								<Button
 									size="lg"
 									variant="outline"
