@@ -100,7 +100,7 @@ const Footer = () => {
 								Quick Links
 							</div>
 							<Link
-								href="/terms-of-service"
+								href="/terms"
 								className="text-gray-600 hover:text-gray-900 transition-colors"
 							>
 								Terms of Service

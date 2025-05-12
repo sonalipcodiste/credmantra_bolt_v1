@@ -80,12 +80,12 @@ const Navbar = () => {
 						Become a reseller
 						<span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
 					</Link>
-					<PopupButton
+					{/* <PopupButton
 						url="https://calendly.com/credmantra/demo"
 						rootElement={document.getElementById("__next")}
 						text="Request a demo"
 						className="rounded-md bg-gradient-to-r from-[#005A8B] to-[#008080] hover:opacity-90 transition-opacity text-white px-4 py-2"
-					/>
+					/> */}
 				</nav>
 
 				<div className="flex items-center gap-4 md:hidden">
@@ -145,12 +145,12 @@ const Navbar = () => {
 						>
 							Become a reseller
 						</Link>
-						<PopupButton
+						{/* <PopupButton
 							url="https://calendly.com/credmantra/demo"
 							rootElement={document.getElementById("__next")}
 							text="Request a demo"
 							className="w-full rounded-md bg-gradient-to-r from-[#005A8B] to-[#008080] hover:opacity-90 transition-opacity text-white py-2"
-						/>
+						/> */}
 					</nav>
 				</div>
 			)}
