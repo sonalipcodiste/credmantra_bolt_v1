@@ -52,12 +52,12 @@ const CTASection = () => {
 								Mantra.
 							</p>
 							<div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-								<PopupButton
+								{/* <PopupButton
 									url="https://calendly.com/credmantra/demo"
 									rootElement={document.getElementById("__next")}
 									text="Request a demo"
 									className="rounded-md text-base px-8 py-3 font-medium bg-white text-[#005A8B] hover:bg-white/90 w-full sm:w-auto"
-								/>
+								/> */}
 								<Button
 									size="lg"
 									variant="outline"
