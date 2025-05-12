@@ -1,12 +1,33 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Merriweather } from 'next/font/google';
+import localFont from 'next/font/local';
 import { ThemeProvider } from '@/components/theme-provider';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/sections/Footer';
 import WhatsAppButton from '@/components/ui/whatsapp-button';
 
-const inter = Inter({ subsets: ['latin'] });
+const merriweather = Merriweather({ 
+  subsets: ['latin'],
+  weight: ['300', '400', '700', '900'],
+  variable: '--font-merriweather'
+});
+
+const satoshi = localFont({
+  src: [
+    {
+      path: '../public/fonts/Satoshi-Medium.woff2',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Satoshi-MediumItalic.woff2',
+      weight: '500',
+      style: 'italic',
+    }
+  ],
+  variable: '--font-satoshi'
+});
 
 export const metadata: Metadata = {
   title: 'CredMantra - Digital Credentials Verification Platform',
@@ -20,7 +41,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${merriweather.variable} ${satoshi.variable} font-body`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
