@@ -16,12 +16,30 @@ import {
 const Navbar = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+	const [rootElement, setRootElement] = useState<HTMLElement | null>(null);
 
 	useEffect(() => {
 		const handleScroll = () => {
 			setIsScrolled(window.scrollY > 20);
 		};
 		window.addEventListener("scroll", handleScroll);
+		const findRoot = () => {
+			const nextRoot = document.getElementById("__next");
+			if (nextRoot) {
+				setRootElement(nextRoot);
+				return;
+			}
+
+			const appRoot = document.getElementById("app");
+			if (appRoot) {
+				setRootElement(appRoot);
+				return;
+			}
+
+			setRootElement(document.body);
+		};
+
+		setTimeout(findRoot, 100);
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
@@ -62,13 +80,21 @@ const Navbar = () => {
 						</DropdownMenuTrigger>
 						<DropdownMenuContent>
 							<DropdownMenuItem>
-								<Link href="#" className="w-full">
-									As reseller
+								<Link
+									href="https://admin.credmantra.org"
+									target="_blank"
+									className="w-full"
+								>
+									Login as Reseller
 								</Link>
 							</DropdownMenuItem>
 							<DropdownMenuItem>
-								<Link href="#" className="w-full">
-									As organization
+								<Link
+									href="https://app.credmantra.org"
+									target="_blank"
+									className="w-full"
+								>
+									Login as Organization
 								</Link>
 							</DropdownMenuItem>
 						</DropdownMenuContent>
@@ -80,12 +106,14 @@ const Navbar = () => {
 						Become a reseller
 						<span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
 					</Link>
-					{/* <PopupButton
-						url="https://calendly.com/credmantra/demo"
-						rootElement={document.getElementById("__next")}
-						text="Request a demo"
-						className="rounded-md bg-gradient-to-r from-[#005A8B] to-[#008080] hover:opacity-90 transition-opacity text-white px-4 py-2"
-					/> */}
+					{rootElement && (
+						<PopupButton
+							url="https://calendly.com/sonalitesting25/30min"
+							rootElement={rootElement}
+							text="Request a demo"
+							className="rounded-md bg-gradient-to-r from-[#005A8B] to-[#008080] hover:opacity-90 transition-opacity text-white px-4 py-2"
+						/>
+					)}
 				</nav>
 
 				<div className="flex items-center gap-4 md:hidden">
@@ -124,18 +152,20 @@ const Navbar = () => {
 						<div className="flex flex-col gap-2 py-2">
 							<div className="text-[#374151]">Login as:</div>
 							<Link
-								href="#"
+								href="https://admin.credmantra.org"
+								target="_blank"
 								className="text-[#374151] hover:text-primary transition-colors pl-4"
 								onClick={() => setMobileMenuOpen(false)}
 							>
-								Reseller
+								Login as Reseller
 							</Link>
 							<Link
-								href="#"
+								href="https://app.credmantra.org"
+								target="_blank"
 								className="text-[#374151] hover:text-primary transition-colors pl-4"
 								onClick={() => setMobileMenuOpen(false)}
 							>
-								Organization
+								Login as Organization
 							</Link>
 						</div>
 						<Link
@@ -145,12 +175,14 @@ const Navbar = () => {
 						>
 							Become a reseller
 						</Link>
-						{/* <PopupButton
-							url="https://calendly.com/credmantra/demo"
-							rootElement={document.getElementById("__next")}
-							text="Request a demo"
-							className="w-full rounded-md bg-gradient-to-r from-[#005A8B] to-[#008080] hover:opacity-90 transition-opacity text-white py-2"
-						/> */}
+						{rootElement && (
+							<PopupButton
+								url="https://calendly.com/sonalitesting25/30min"
+								rootElement={rootElement}
+								text="Request a demo"
+								className="rounded-md bg-gradient-to-r from-[#005A8B] to-[#008080] hover:opacity-90 transition-opacity text-white px-4 py-2"
+							/>
+						)}
 					</nav>
 				</div>
 			)}
