@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps, router }) {
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
-		// Simulate a loading delay
+		// Simulate a loading
 		const timer = setTimeout(() => {
 			setIsLoading(false);
 		}, 500);
